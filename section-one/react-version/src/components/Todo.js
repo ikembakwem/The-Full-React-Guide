@@ -2,16 +2,16 @@ import { useState } from 'react';
 import { Backdrop } from './Backdrop';
 import { Modal } from './Modal';
 
-const Todo = ({ text }) => {
-  const [showModal, setShowModal] = useState();
+export default function ({ text }) {
+  const [showModal, setShowModal] = useState(false);
 
-  const showModalHandler = () => {
+  function showModalHandler() {
     setShowModal(true);
-  };
+  }
 
-  const closeModalHander = () => {
+  function closeModalHander() {
     setShowModal(false);
-  };
+  }
 
   return (
     <div className="card">
@@ -22,9 +22,7 @@ const Todo = ({ text }) => {
         </button>
       </div>
       {showModal && <Backdrop onClick={closeModalHander} />}
-      {showModal && <Modal text="Are you sure?" onClick={closeModalHander} />}
+      {showModal && <Modal text="Are you sure?" onClose={closeModalHander} />}
     </div>
   );
-};
-
-export default Todo;
+}
