@@ -36,7 +36,7 @@ export const ExpensesList = () => {
       <Card className="expenses">
         {expenses.map((expense) => (
           <ExpenseItem
-            key={expense.key}
+            key={expense.id}
             date={expense.date}
             amount={expense.amount}
             title={expense.title}
